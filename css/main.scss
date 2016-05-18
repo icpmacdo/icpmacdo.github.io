@@ -88,7 +88,7 @@ header {
 		ul {
 
 			padding-top: 0.5em;
-			line-height: 60px; 
+			line-height: 60px;
 
 			li {
 				display: inline-block;
@@ -127,7 +127,7 @@ header {
 	@include transition-delay(350ms);
 
 	section.intro {
-	 
+
 		@include outer-container;
 		margin-bottom: 5em;
 
@@ -168,7 +168,7 @@ header {
 
 		@include outer-container;
 		padding-top: 2em;
-		padding-bottom: 5em;
+		padding-bottom: 1em;
 
 		h2 {
 			text-transform: uppercase;
@@ -188,7 +188,7 @@ header {
 			border-top: $section-border;
 			padding-top: 1em;
 			padding-bottom: 3em;
-			
+
 			@include media($mobile) {
 				@include span-columns(4);
 			}
