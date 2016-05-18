@@ -187,7 +187,7 @@ header {
 			@include span-columns(6);
 			border-top: $section-border;
 			padding-top: 1em;
-			padding-bottom: 3em;
+			padding-bottom: 1em;
 
 			@include media($mobile) {
 				@include span-columns(4);
