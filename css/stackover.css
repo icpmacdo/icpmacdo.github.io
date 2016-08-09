@@ -1,0 +1,76 @@
+body {
+    background-color: lightblue;
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+}
+
+a {
+	color: black;
+}
+
+.questionsContainer{
+	text-align: center;
+}
+
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 50%;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    display: inline-block;
+    background-color: #E9FFCD;
+	font-family: 'Raleway', sans-serif;
+    border-style: groove;
+
+}
+
+button.accordion.active, button.accordion:hover {  
+	background-color: #E9FFCD;
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: lightblue;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+    text-align: center;
+	font-family: 'Raleway', sans-serif;
+
+}
+
+div.panel.show {
+    opacity: 1;
+    max-height: 500px;
+}
+
+@media (max-width: 900px) {
+ button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 95%;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    display: inline-block;
+    background-color: #E9FFCD;
+    font-family: 'Raleway', sans-serif;
+    border-style: groove;
+
+}
+
+ }
+
+
