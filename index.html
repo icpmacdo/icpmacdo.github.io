@@ -5,6 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="img/favicon.ico">
+	<!-- Add Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+	<!-- End Google Fonts -->
 	<link rel="stylesheet" href="css/vendor/fluidbox.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	<title>Ian MacDonald</title>
@@ -15,129 +20,127 @@
 			<div id="logo"><a href="/">Ian MacDonald</a></div>
 			<div id="subtitle">Mobile application developer</div>
 		</div>
+		<!-- Add Navigation -->
+		<nav>
+			<ul>
+				<li><a href="#projectsSection">Projects</a></li>
+				<!-- Add other links here if needed -->
+			</ul>
+		</nav>
+		<!-- End Navigation -->
+		<!-- Hamburger Menu Button -->
+		<button class="hamburger-button" id="hamburger-button" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-nav-list">
+			<span class="hamburger-icon"></span>
+		</button>
+		<!-- End Hamburger Menu Button -->
 	</header>
 	<div id="content">
 		<section class="intro">
-			<h1></h1>
 			<p>
-				Results-driven full stack software developer with over 5 years of expertise in creating robust solutions for web and mobile platforms. Proven track record both within organizations and as a consultant, implementing versatile solutions tailored to diverse business needs. Recognized for promoting seamless communication within teams and showcasing exceptional autonomy in individual projects			
+				Senior Full Stack Developer with 5+ years of expertise building enterprise-scale web and mobile solutions. Proven track record of leading technical initiatives
+				both independently and within teams, delivering high-impact solutions for startups and established organizations. Specializes in complex system
+				architecture, cross-platform mobile development, and IoT integration.
 			</p>
-		<br>
 		</section>
-		<section class="row">
-			<div class="col-full">
-				<h1 id="projectsSection">Projects</h1>
 
+		<!-- Projects Section -->
+		<section id="projectsSection" class="projects-section">
+			<div class="col-full">
+				<h1>Projects</h1>
 			</div>
-		</section>
-		<section class="row">
-			<div id="wrapper" style="text-align: center">
-				<div id="yourdiv" style="display: inline-block;">
-					<h3 id="contentCenter">DingCasts</h3>
+
+			<!-- Projects Container -->
+			<div class="projects-container">
+
+				<!-- Project 1: DingCasts -->
+				<article class="project-card">
+					<h3 class="project-title">DingCasts</h3>
 					<p>High-quality audio shows on demand, just select topics you would like to hear about.</p>
-					<br>
-					<br>
-					<a href="https://dingcasts.com/" target="_blank" rel="noopener noreferrer" class="col-1">Visit DingCasts</a>
-				</div>
-			</div>
-			<br>
-			<br>
-			<br>
-		</section>		
-		<section class="row">
-			<div >
-				<div id="wrapper" style="text-align: center">
-				    <div id="yourdiv" style="display: inline-block;">
-							<h3 id="contentCenter">Setence Combining</h3>
-							<p>"Sentence Combining" was an application designed for speech therapy, aimed at assisting children in improving their language skills by teaching them how to construct more complex sentences.</p>
-							<br>
-							<video width="640" height="480" controls>
-								<source src="sc.mp4" type="video/mp4">
-								Your browser does not support the video tag.
-							</video>
-						</div>
-				</div>
-			<br>
-			<br>
-			<br>
-				<div id="wrapper" style="text-align: center">
-				    <div id="yourdiv" style="display: inline-block;">
-							<h3 id="contentCenter">
-								HSV Color picker
-							</h3>
-							<p>The "HSV Color Picker" is an Android application that allows users to select colors based on the Hue, Saturation, and Value (HSV) color model. It provides an intuitive interface where users can adjust sliders or input fields to find and select specific colors.</p>
-							<br>
-							<a href="https://github.com/icpmacdo/HSVColorPicker" rel="" class="col-1"><img src="img/hsv.png" alt="Example photo"></a>
-							<br>
-							<a href="https://github.com/icpmacdo/HSVColorPicker" rel="" class="col-1">Github</a>
-							
-						</div>
-				</div>
-				<br>
-				<br>
-				<br>
-				<div id="wrapper" style="text-align: center">
-				    <div id="yourdiv" style="display: inline-block;">
-							<br>
-							<h3  id="contentCenter">
-								MVC Stopwatch
-							</h3>
-							<p>"MVC Stopwatch" is an application designed to demonstrate the Model-View-Controller (MVC) architectural pattern through a practical stopwatch functionality</p>
-							<br>
-							<a href="https://github.com/icpmacdo/MVCStopwatch" rel="" class="col-1"><img src="img/mvc.png" alt="Example photo" class=""></a>
-							<br>
-							<a href="https://github.com/icpmacdo/MVCStopwatch" rel="" class="col-1">Github</a>
-						</div>
-				</div>
+					<a href="https://dingcasts.com/" target="_blank" rel="noopener noreferrer" class="project-link">Visit DingCasts</a>
+				</article>
 
-				<div id="wrapper" style="text-align: center">
-				    <div id="yourdiv" style="display: inline-block;">
-							<br>
-							<h3  id="contentCenter">
-								Stack Overflow Questions API
-							</h3>
-							<p>Infinite scrolling in a web application using the Stack Overflow Questions API</p>
-							<br>
-							<a href="https://github.com/icpmacdo/questionStream" rel="" class="col-1"><img src="img/stackover.png" alt="Example photo" class=""></a>
-							<p><a href="stackover.html">Live</a></p>
-							
-						</div>
-				</div>
+				<!-- Project 2: Sentence Combining -->
+				<article class="project-card">
+					<h3 class="project-title">Sentence Combining</h3>
+					<p>"Sentence Combining" was an application designed for speech therapy, aimed at assisting children in improving their language skills by teaching them how to construct more complex sentences.</p>
+					<video width="640" height="480" controls>
+						<source src="sc.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</article>
 
-				<br>
+				<!-- Project 3: HSV Color Picker -->
+				<article class="project-card">
+					<h3 class="project-title">
+						HSV Color picker
+					</h3>
+					<p>The "HSV Color Picker" is an Android application that allows users to select colors based on the Hue, Saturation, and Value (HSV) color model. It provides an intuitive interface where users can adjust sliders or input fields to find and select specific colors.</p>
+					<a href="https://github.com/icpmacdo/HSVColorPicker" rel="" class="project-image-link"><img src="img/hsv.png" alt="HSV Color Picker Screenshot"></a>
+					<a href="https://github.com/icpmacdo/HSVColorPicker" rel="" class="project-link">Github</a>
+				</article>
+
+				<!-- Project 4: MVC Stopwatch -->
+				<article class="project-card">
+					<h3 class="project-title">
+						MVC Stopwatch
+					</h3>
+					<p>"MVC Stopwatch" is an application designed to demonstrate the Model-View-Controller (MVC) architectural pattern through a practical stopwatch functionality</p>
+					<a href="https://github.com/icpmacdo/MVCStopwatch" rel="" class="project-image-link"><img src="img/mvc.png" alt="MVC Stopwatch Screenshot" class=""></a>
+					<a href="https://github.com/icpmacdo/MVCStopwatch" rel="" class="project-link">Github</a>
+				</article>
+
+				<!-- Project 5: Stack Overflow API -->
+				<article class="project-card">
+					<h3 class="project-title">
+						Stack Overflow Questions API
+					</h3>
+					<p>Infinite scrolling in a web application using the Stack Overflow Questions API</p>
+					<a href="https://github.com/icpmacdo/questionStream" rel="" class="project-image-link"><img src="img/stackover.png" alt="Stack Overflow API Example Screenshot" class=""></a>
+					<p><a href="stackover.html" class="project-link">Live Demo</a></p>
+				</article>
+
 			</div>
 		</section>
-		<section  >
-			<div class="col">
-				<h2>Follow me</h2>
-				<p>
-					On <a href="https://www.linkedin.com/in/ian-macdonald-9501795a/">LinkedIn</a></a>
-				</p>
-			</div>
+
+		<!-- Add Technologies and Skills Section -->
+		<section id="skillsSection" class="content-section">
+			<h2>Technologies and Skills</h2>
+			<article class="skills-entry">
+				<p><strong>Languages:</strong> JavaScript/TypeScript, Python, C++, Swift, Java, HTML5, CSS3</p>
+				<p><strong>Frameworks/Tools:</strong> Node.js, React, React Native, Express, PostgreSQL, Elasticsearch, Firebase, Docker, Unix, Git, Yellowfin</p>
+			</article>
 		</section>
-		<!--
-		<section class="row">
-			<div class="col-full">
-				<p>
-					© 2014 - This is a free website template by <a href="http://www.pixelsbyrick.com">Rick Waalders</a>
-				</p>
-			</div>
-		</section>
-	-->
+		<!-- End Technologies and Skills Section -->
+
 	</div>
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<footer>
+		<div class="footer-content">
+			<h2>Follow me</h2>
+			<p>
+				On <a href="https://www.linkedin.com/in/ian-macdonald-9501795a/">LinkedIn</a>
+			</p>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+	<!-- Remove Old Scripts -->
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script>
 	if (!window.jQuery)
 	{
 	    document.write('<script src="js/vendor/jquery.1.11.min.js"><\/script>');
 	}
 	</script>
-
 	<script src="js/vendor/jquery.fluidbox.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="js/main.js"></script> -->
+	<!-- End Remove Old Scripts -->
 
-	<script>
+	<!-- Add New Script -->
+	<script src="js/script.js" defer></script>
+
+	<!-- Removed Google Analytics -->
+	<!-- <script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -146,7 +149,7 @@
 	  ga('create', 'YOUR_GOOGLE_ANALYTICS_ID', 'auto');
 	  ga('send', 'pageview');
 
-	</script>
+	</script> -->
 
 </body>
 </html>

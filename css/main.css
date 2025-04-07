@@ -42,17 +42,27 @@ html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html, button, input, select, textarea {
   font-family: sans-serif;
 }
 
-a:focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
+*:focus-visible {
+  outline: 2px solid #76c3f5;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(118, 195, 245, 0.2);
 }
+
+a:focus {
+  /* Keep default focus handling for links if needed, but :focus-visible is preferred */
+  /* outline: thin dotted; */ /* Example: removed old one */
+}
+
 a:hover, a:active {
   outline: 0;
 }
@@ -93,6 +103,7 @@ pre {
 blockquote, q {
   quotes: none;
 }
+
 blockquote:before, blockquote:after, q:before, q:after {
   content: '';
   content: none;
@@ -195,16 +206,6 @@ table {
   border-spacing: 0;
 }
 
-/* Neat 1.7.0
- * http://neat.bourbon.io
- * Copyright 2012-2014 thoughtbot, inc.
- * MIT License */
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 *, *:before, *:after {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
@@ -220,9 +221,9 @@ body {
   text-rendering: optimizeLegibility;
   background-color: #22272a;
   color: #ced9e0;
-  font-family: "font-family: " Helvetica Neue ",Helvetica,Arial,sans-serif";
-  font-size: 1em;
-  line-height: 1.5;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 h1,
@@ -231,26 +232,34 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "font-family: " Helvetica Neue ",Helvetica,Arial,sans-serif";
-  line-height: 1.25;
-  margin: 0;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
   color: #fff;
+  font-weight: 700;
 }
 
 h1 {
-  font-size: 2.25em;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 h3 {
-  font-size: 1.75em;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 h4 {
-  font-size: 1.5em;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #bdc5cc;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 h5 {
@@ -262,28 +271,31 @@ h6 {
 }
 
 p {
-  margin: 0 0 0.75em;
-  font-family: "font-family: " Helvetica Neue ",Helvetica,Arial,sans-serif";
+  margin-bottom: 1rem;
+  line-height: inherit;
 }
 
 a {
-  -webkit-transition: color 0.1s linear;
-  -moz-transition: color 0.1s linear;
-  transition: color 0.1s linear;
-  color: #ced9e0;
+  color: #76c3f5;
   text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
 }
+
 a:hover {
-  color: #9fb5c2;
-  border-color: #9fb5c2;
-}
-a:active, a:focus {
-  color: #9fb5c2;
-  border-color: #9fb5c2;
-  outline: none;
+  opacity: 0.8;
+  text-decoration: underline;
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1a1f22;
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   color: #fff;
 }
 
@@ -329,35 +341,6 @@ a:hover {
   color: #e85151;
 }
 
-header {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 4em;
-  border-top: 2px solid #e85151;
-  opacity: 0;
-  -webkit-transform: translateY(50px);
-  -moz-transform: translateY(50px);
-  -ms-transform: translateY(50px);
-  -o-transform: translateY(50px);
-  transform: translateY(50px);
-  -webkit-transition: all 1200ms ease;
-  -moz-transition: all 1200ms ease;
-  transition: all 1200ms ease;
-  -webkit-transition-delay: 50ms;
-  -moz-transition-delay: 50ms;
-  transition-delay: 50ms;
-}
-header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-@media screen and (max-width: 540px) {
-  header {
-    margin-top: 2em;
-  }
-}
 header #logo-container {
   float: left;
   display: block;
@@ -368,14 +351,27 @@ header #logo-container:last-child {
   margin-right: 0;
 }
 @media screen and (max-width: 540px) {
-  header #logo-container {
-    float: left;
-    display: block;
-    margin-right: 7.42297%;
-    width: 100%;
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
   }
-  header #logo-container:last-child {
-    margin-right: 0;
+
+  #logo-container {
+    margin-bottom: 0.5rem;
+  }
+
+  nav ul {
+    margin-top: 0.5rem;
+  }
+
+  nav li {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+
+  #content {
+    padding-top: 100px;
   }
 }
 header #logo-container #logo {
@@ -453,22 +449,11 @@ header nav ul li a.bordered {
 }
 
 #content {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 2em;
-  opacity: 0;
-  -webkit-transform: translateY(50px);
-  -moz-transform: translateY(50px);
-  -ms-transform: translateY(50px);
-  -o-transform: translateY(50px);
-  transform: translateY(50px);
-  -webkit-transition: all 1200ms ease;
-  -moz-transition: all 1200ms ease;
-  transition: all 1200ms ease;
-  -webkit-transition-delay: 350ms;
-  -moz-transition-delay: 350ms;
-  transition-delay: 350ms;
+  padding-top: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 #content:after {
   content: "";
@@ -476,10 +461,10 @@ header nav ul li a.bordered {
   clear: both;
 }
 #content section.intro {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 5em;
+  padding: 2rem 0;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
 }
 #content section.intro:after {
   content: "";
@@ -648,7 +633,6 @@ header nav ul li a.bordered {
   opacity: 1;
 }
 
-
 img.resize{
     width:540px; /* you can use % */
     height: auto;
@@ -656,13 +640,496 @@ img.resize{
 
 /*# sourceMappingURL=main.css.map */
 
-
-
 #contentCenter {
   text-align: center;
 }
 
 #projectsSection {
   text-align: center;
-  color: #e85151;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+/* Projects Section Styles */
+.projects-section {
+  padding: 2rem 0;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.project-card {
+  background-color: #2a3033;
+  padding: 1.5rem;
+  border-radius: 8px;
+  flex: 1 1 320px;
+  max-width: 450px;
+  text-align: left;
+  transition: transform 0.5s ease-out, box-shadow 0.3s ease-in-out, opacity 0.5s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img,
+.project-card video {
+  max-width: 100%;
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  background-color: #333;
+}
+
+.project-title {
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Responsive adjustments for Header */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  #logo-container {
+    margin-bottom: 0.5rem;
+  }
+
+  nav ul {
+    margin-top: 0.5rem;
+  }
+
+  nav li {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+
+  #content {
+    padding-top: 100px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .intro {
+    padding: 1rem 0;
+  }
+
+  .projects-section {
+    padding: 1rem 0;
+  }
+
+  .project-card {
+    padding: 1rem;
+    flex-basis: calc(100% - 1rem);
+  }
+
+  footer {
+    padding: 1.5rem 0.5rem;
+    margin-top: 2rem;
+  }
+}
+
+/* Footer Styles */
+footer {
+  background-color: #1a1f22;
+  color: #a0a0a0;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-content a {
+  color: #76c3f5;
+}
+
+.footer-content a:hover {
+  color: #fff;
+}
+
+/* Hamburger Button Styles */
+.hamburger-button {
+  display: none; /* Hide by default on larger screens */
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 110; /* Above sticky header */
+}
+
+.hamburger-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hamburger-icon::before {
+  top: -7px;
+}
+
+.hamburger-icon::after {
+  bottom: -7px;
+}
+
+/* Hamburger Active State (when menu is open) */
+.hamburger-button.active .hamburger-icon {
+  background-color: transparent; /* Middle bar fades out */
+}
+
+.hamburger-button.active .hamburger-icon::before {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-button.active .hamburger-icon::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  header {
+    flex-direction: row; /* Keep logo and button on same row */
+    justify-content: space-between; /* Space them out */
+    align-items: center;
+    padding: 1rem;
+  }
+
+  #logo-container {
+    margin-bottom: 0; /* Remove margin when side-by-side */
+  }
+
+  nav {
+    display: none; /* Hide standard nav */
+    position: fixed; /* Or absolute depending on desired effect */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(26, 31, 34, 0.95); /* Semi-transparent dark */
+    z-index: 105; /* Below button, above header content */
+    padding-top: 60px; /* Space below header */
+    align-items: center;
+    justify-content: center;
+  }
+
+  nav.active {
+    display: flex; /* Show nav when active */
+  }
+
+  nav ul {
+    flex-direction: column; /* Stack nav items vertically */
+    align-items: center;
+    margin-top: 0;
+  }
+
+  nav li {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1.5rem; /* Space out vertical items */
+  }
+
+  nav a {
+    font-size: 1.5rem; /* Larger text for mobile menu */
+    color: #fff; /* Ensure high contrast */
+  }
+
+  .hamburger-button {
+    display: block; /* Show hamburger on small screens */
+  }
+
+  #content {
+    /* Keep existing padding-top, might not need adjustment if header height stable */
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Content Section Styling (for Experience, Education, Skills) */
+.content-section {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background-color: #2a3033;
+  border-radius: 8px;
+}
+
+.content-section h2 {
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Job Entry Styling */
+.job-entry {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed #444;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.job-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Class to add when element is visible */
+.job-entry.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.job-entry h3 {
+  margin-bottom: 0.25rem;
+}
+
+.job-location-date {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.job-entry ul {
+  list-style-position: outside;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.job-entry li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.tech-stack {
+  font-size: 0.9rem;
+  color: #b0bec5;
+  margin-top: 1rem;
+}
+
+.tech-stack strong {
+  color: #ced9e0;
+}
+
+/* Education & Skills Styling */
+.education-entry p,
+.skills-entry p {
+  margin-bottom: 0.5rem;
+}
+
+.education-entry strong,
+.skills-entry strong {
+  color: #ced9e0;
+}
+
+@media (max-width: 600px) {
+  #content {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .intro {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+  }
+
+  .content-section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+
+  .job-entry {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+/* Removed H4 styling specific to resume */
+/* h4 { ... } */
+
+/* Intro Section */
+.intro {
+  padding: 2rem 0;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem auto; /* Reverted bottom margin */
+}
+
+/* Removed .content-section styling */
+/* .content-section { ... } */
+/* .content-section h2 { ... } */
+
+/* Removed Job Entry Styling */
+/* .job-entry { ... } */
+/* .job-entry:last-child { ... } */
+/* .job-entry.visible { ... } */
+/* .job-entry h3 { ... } */
+/* .job-location-date { ... } */
+/* .job-entry ul { ... } */
+/* .job-entry li { ... } */
+/* .tech-stack { ... } */
+/* .tech-stack strong { ... } */
+
+/* Removed Education & Skills Styling */
+/* .education-entry p, .skills-entry p { ... } */
+/* .education-entry strong, .skills-entry strong { ... } */
+
+/* Restored Project-related Styles */
+#projectsSection h1 {
+  text-align: center;
+  color: #fff; /* Keep white color */
+  margin-bottom: 2rem; /* Ensure space below title */
+}
+
+.projects-section {
+  padding: 2rem 0; /* Adjusted padding */
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.project-card {
+  background-color: #2a3033;
+  padding: 1.5rem;
+  border-radius: 8px;
+  flex: 1 1 320px;
+  max-width: 450px;
+  text-align: left;
+  /* Re-apply scroll animation styles */
+  transition: transform 0.5s ease-out, box-shadow 0.3s ease-in-out, opacity 0.5s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Class to add when element is visible */
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img,
+.project-card video {
+  max-width: 100%;
+  /* Re-apply consistent height/fit */
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  background-color: #333; /* Keep placeholder background */
+}
+
+.project-title {
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  /* Restore project section padding */
+  .projects-section {
+    padding: 1rem 0;
+  }
+
+  /* Restore project card padding/basis */
+  .project-card {
+    padding: 1rem;
+    flex-basis: calc(100% - 1rem);
+  }
+
+  /* Remove content-section/job-entry mobile styles */
+
+  footer {
+    padding: 1.5rem 0.5rem;
+    margin-top: 2rem;
+  }
+}
+
+/* Added Styling for Content Section (used for Skills) */
+.content-section {
+  margin-top: 3rem; /* Add space above the skills section */
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background-color: #2a3033;
+  border-radius: 8px;
+}
+
+.content-section h2 {
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Skills Entry Styling */
+.skills-entry p {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.skills-entry strong {
+  color: #ced9e0;
 }
