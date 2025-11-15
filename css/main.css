@@ -51,17 +51,17 @@ html {
    ============================================ */
 
 :root {
-  /* Colors - Warm Editorial Palette */
-  --color-bg-primary: #FAF7F2;
-  --color-bg-secondary: #F5EFE7;
-  --color-bg-tertiary: #EBE3D5;
-  --color-text-primary: #2B1810;
-  --color-text-secondary: #5A4A3A;
-  --color-text-muted: #8B7A6A;
-  --color-accent-primary: #C1502E;
-  --color-accent-secondary: #D4691E;
-  --color-accent-tertiary: #6B7E5F;
-  --color-accent-olive: #8B9B7A;
+  /* Colors - Light Orange & White Palette */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #FFFBF7;
+  --color-bg-tertiary: #FFF5ED;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #4A4A4A;
+  --color-text-muted: #7A7A7A;
+  --color-accent-primary: #FF8C42;
+  --color-accent-secondary: #FFA266;
+  --color-accent-tertiary: #FFB885;
+  --color-accent-olive: #FFCDA3;
 
   /* Typography */
   --font-serif: 'EB Garamond', serif;
@@ -80,9 +80,9 @@ html {
   --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(43, 24, 16, 0.08);
-  --shadow-md: 0 4px 16px rgba(43, 24, 16, 0.12);
-  --shadow-lg: 0 8px 32px rgba(43, 24, 16, 0.16);
+  --shadow-sm: 0 2px 8px rgba(255, 140, 66, 0.12);
+  --shadow-md: 0 4px 16px rgba(255, 140, 66, 0.16);
+  --shadow-lg: 0 8px 32px rgba(255, 140, 66, 0.24);
 }
 
 /* ============================================
@@ -110,8 +110,8 @@ body::before {
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(circle at 20% 30%, rgba(193, 80, 46, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(107, 126, 95, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 20% 30%, rgba(255, 140, 66, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 184, 133, 0.06) 0%, transparent 50%),
     linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
   z-index: -2;
 }
@@ -194,7 +194,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-md) var(--spacing-lg);
-  background: rgba(250, 247, 242, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 2px solid var(--color-accent-primary);
   position: sticky;
@@ -273,7 +273,7 @@ header nav ul li a::after {
 header nav ul li a:hover {
   color: var(--color-accent-primary);
   border-color: var(--color-accent-primary);
-  background: rgba(193, 80, 46, 0.05);
+  background: rgba(255, 140, 66, 0.06);
 }
 
 /* ============================================
@@ -306,10 +306,10 @@ header nav ul li a:hover {
   border-left: 3px solid var(--color-accent-primary);
   border-right: 3px solid var(--color-accent-primary);
   background: linear-gradient(to right,
-    rgba(193, 80, 46, 0.03) 0%,
+    rgba(255, 140, 66, 0.04) 0%,
     transparent 10%,
     transparent 90%,
-    rgba(193, 80, 46, 0.03) 100%);
+    rgba(255, 140, 66, 0.04) 100%);
 }
 
 /* ============================================
@@ -496,7 +496,7 @@ header nav ul li a:hover {
   width: 100%;
   height: 100%;
   background:
-    linear-gradient(135deg, transparent 0%, rgba(107, 126, 95, 0.03) 100%);
+    linear-gradient(135deg, transparent 0%, rgba(255, 184, 133, 0.04) 100%);
   pointer-events: none;
 }
 
@@ -585,7 +585,7 @@ header nav ul li a:hover {
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(circle at 30% 50%, rgba(193, 80, 46, 0.08) 0%, transparent 50%);
+    radial-gradient(circle at 30% 50%, rgba(255, 140, 66, 0.08) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -857,7 +857,7 @@ footer a:hover {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(250, 247, 242, 0.98);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     z-index: 105;
     padding-top: 80px;
