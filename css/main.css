@@ -308,8 +308,8 @@ header nav ul li a:hover {
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.25rem;
 }
 
