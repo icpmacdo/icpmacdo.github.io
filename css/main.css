@@ -203,6 +203,114 @@ header nav ul li a:hover {
 }
 
 /* ============================================
+   EXPERIENCE SECTION
+   ============================================ */
+
+.experience-section {
+  margin-bottom: 4rem;
+}
+
+.experience-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.experience-item {
+  background: var(--color-surface);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.experience-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-accent);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1.5rem;
+}
+
+.experience-title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--color-text);
+}
+
+.experience-company {
+  font-size: 1rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.experience-meta {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.experience-location,
+.experience-date {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.experience-description {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.experience-role {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.experience-role h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.experience-role-date {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.experience-list {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.experience-list li {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* ============================================
    PROJECTS SECTION
    ============================================ */
 
@@ -214,9 +322,9 @@ header nav ul li a:hover {
   border-radius: 4px;
 }
 
-.projects-section h1 {
-  font-size: 1.75rem;
-  margin-bottom: 1.25rem;
+.projects-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
   font-weight: 600;
 }
 
@@ -344,6 +452,44 @@ header nav ul li a:hover {
 .skill-badge:hover {
   background: var(--color-surface);
   border-color: var(--color-accent);
+}
+
+/* ============================================
+   EDUCATION SECTION
+   ============================================ */
+
+.education-content {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.education-item {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.education-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.education-item h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.education-institution {
+  font-size: 1rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.education-date {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
 }
 
 /* ============================================
@@ -582,6 +728,19 @@ footer {
 
   h2 {
     font-size: 1.75rem;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .experience-meta {
+    text-align: left;
+  }
+
+  .experience-item {
+    padding: 1.5rem;
   }
 
   .projects-container {
