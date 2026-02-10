@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Hamburger Menu Toggle ---
     const hamburgerButton = document.getElementById('hamburger-button');
-    const navMenu = document.querySelector('nav'); // Target the nav element directly
+    const navMenu = document.querySelector('nav');
 
     if (hamburgerButton && navMenu) {
         hamburgerButton.addEventListener('click', () => {
@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburgerButton.classList.toggle('active');
             hamburgerButton.setAttribute('aria-expanded', isActive);
 
-            // Optional: Prevent body scroll when menu is open
             if (isActive) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Close menu if a nav link is clicked (for single-page apps/scrolling)
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navMenu.classList.contains('active')) {
@@ -33,46 +31,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Intersection Observer for Scroll Animations ---
-    const elementsToAnimate = document.querySelectorAll('.project-card');
+    // --- Fade-in on Scroll ---
+    const fadeElements = document.querySelectorAll('.experience-item, .project-card, .content-section');
 
-    if ('IntersectionObserver' in window && elementsToAnimate.length > 0) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+    fadeElements.forEach(el => el.classList.add('fade-in'));
 
-        const observerCallback = (entries, observer) => {
-            entries.forEach(entry => {
+    if ('IntersectionObserver' in window && fadeElements.length > 0) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry, i) => {
                 if (entry.isIntersecting) {
+                    // Stagger siblings by 0.1s
+                    entry.target.style.transitionDelay = (i * 0.1) + 's';
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+                    obs.unobserve(entry.target);
                 }
             });
-        };
+        }, { threshold: 0.1 });
 
-        const animationObserver = new IntersectionObserver(observerCallback, observerOptions);
-
-        elementsToAnimate.forEach(element => {
-            animationObserver.observe(element);
-        });
-
+        fadeElements.forEach(el => observer.observe(el));
     } else {
-        // Fallback for browsers that don't support IntersectionObserver
-        elementsToAnimate.forEach(element => {
-            element.classList.add('visible');
-            element.style.opacity = 1;
-            element.style.transform = 'translateY(0)';
+        fadeElements.forEach(el => {
+            el.classList.add('visible');
         });
-        console.warn('IntersectionObserver not supported, scroll animations disabled.');
     }
 
     // --- Scroll to Top Button ---
     const scrollToTopButton = document.getElementById('scrollToTop');
 
     if (scrollToTopButton) {
-        // Show/hide button based on scroll position
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
                 scrollToTopButton.classList.add('visible');
@@ -81,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Smooth scroll to top when clicked
         scrollToTopButton.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -94,15 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-
-            // Skip if it's just "#" or empty
             if (targetId === '#' || !targetId) return;
 
             const targetElement = document.querySelector(targetId);
-
             if (targetElement) {
                 e.preventDefault();
-                const headerOffset = 80; // Account for sticky header
+                const headerOffset = 80;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -114,4 +96,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-}); 
+});
